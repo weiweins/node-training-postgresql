@@ -1,15 +1,19 @@
 const dotenv = require('dotenv')
 
+//宣告環境變數並代入檔案資料
 const result = dotenv.config()
 const db = require('./db')
 const web = require('./web')
+const secret = require('./secret')
 
 if (result.error) {
   throw result.error
 }
+
 const config = {
   db,
-  web
+  web,
+  secret
 }
 
 class ConfigManager {
